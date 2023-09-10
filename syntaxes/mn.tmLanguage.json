@@ -1,0 +1,58 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Mnemosyne",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#types"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.mn",
+				"match": "\\b(on|from|do|when|send|to|channel|out|end|not|and|or)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.mn",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.mn",
+					"match": "\\\\."
+				}
+			]
+		},
+		"constants":{
+			"patterns": [
+				{
+					"match": "\\b(true|false|nil)\\b",
+					"name": "constant.language.mn"
+				}, 
+				{
+					"match": "\\b[0-9]+\\b",
+					"name": "constant.numeric.mn"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"match": "\\b(int|string|bool|real)\\b",
+					"name": "entity.name.type.mn"
+				}
+			]
+		}
+	},
+	"scopeName": "source.mn"
+}
